@@ -31,7 +31,13 @@ This architecture ensures fast response times, data availability, and system res
 
 ---
 
-# 🚀 Complete Project Implementation Guide
+## 📈 System Workflow Diagram
+
+The diagram below illustrates the complete data and application flow, from user interaction to database replication and machine learning prediction.
+![alt text](assets/workflow_diagram.png)
+---
+
+# 🚀 Project Implementation Guide
 
 This guide provides all the necessary steps to get the Distributed Banking System running, from understanding its core database optimizations to launching the ML-powered web application.
 
@@ -71,7 +77,7 @@ This guide provides all the necessary steps to get the Distributed Banking Syste
 cd publisher
 docker build -t your-docker-username/postgres-publisher:latest .
 ```
-
+Link to init_publisher file: https://drive.google.com/file/d/1vT0YNgnQnO42UCK1sPLBRqx2Yd1vRZ3n/view?usp=sharing
 * Copies `init_publisher.sql` → auto-creates database, tables, replication publication.
 
 ### Step 2: Subscriber Image
@@ -80,7 +86,7 @@ docker build -t your-docker-username/postgres-publisher:latest .
 cd ../subscriber
 docker build -t your-docker-username/postgres-subscriber:latest .
 ```
-
+Link to init_subscriber file: https://drive.google.com/file/d/1c2jtoUGDUF6Ej-t7nuk1AdnIXp24M4ly/view?usp=sharing
 * Copies `init_subscriber.sql` → creates subscription to Publisher.
 
 ✅ Optionally, push to Docker Hub:
@@ -98,7 +104,7 @@ docker push your-docker-username/postgres-subscriber:latest
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone <https://github.com/ShreyShah1018/Distributed-Banking-System>
 cd Distributed-Banking-System
 ```
 
@@ -196,7 +202,7 @@ joblib.dump(best_model, 'loan_default_model.pkl')
 ```
 
 ### Step 2: Flask Integration
-
+![alt text](assets/loan_prediction_page.png)
 - `routes.py` loads the `.pkl` model
 - `/loan_predict` and `/loan_application` both use `model.predict()` to classify
 - Prediction displayed on frontend using `result.html` or inline form response
@@ -226,6 +232,12 @@ Or directly run `__init__.py` in your IDE.
 ### Step 3: Access the App
 
 [http://127.0.0.1:5000](http://127.0.0.1:5000)
+Application Showcase
+Login Page
+![alt text](assets/login_page.png)
+Accounts Overview	
+![alt text](assets/accounts_page.png)
+
 
 ✅ All data created (accounts, loans, predictions) is written to the **Publisher** and automatically replicated to the **Subscriber**.
 
