@@ -69,3 +69,6 @@ venv.bak/
 # Other
 *.log
 *.pkl
+
+# Jupyter Notebook
+.ipynb_checkpoints/
