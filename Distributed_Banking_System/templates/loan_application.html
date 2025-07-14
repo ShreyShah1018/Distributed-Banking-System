@@ -1,0 +1,34 @@
+{% extends "home.html" %}
+
+{% block title %}Loan Application - Banking App{% endblock %}
+
+{% block content %}
+<h1>Loan Application</h1>
+<form id="loan-form" class="loan-application-form">
+    <div class="form-group">
+        <label for="loan-amount">Loan Amount</label>
+        <input type="number" id="loan-amount" name="loan-amount" required>
+    </div>
+    <div class="form-group">
+        <label for="loan-purpose">Loan Purpose</label>
+        <select id="loan-purpose" name="loan-purpose" required>
+            <option value="">Select a purpose</option>
+            <option value="Home Loan">Home Loan</option>
+            <option value="Car Loan">Car Loan</option>
+            <option value="Personal Loan">Personal Loan</option>
+            <option value="Business Loan">Business Loan</option>
+            <option value="Education Loan">Education Loan</option>      
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="loan-term">Loan Term (years)</label>
+        <input type="number" id="loan-term" name="loan-term" required>
+    </div>
+    <button type="submit" class="submit-btn">Apply for Loan</button>
+</form>
+<div id="response-message"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/loan_application.js') }}"></script>
+{% endblock %}

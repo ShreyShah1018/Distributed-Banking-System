@@ -1,0 +1,5 @@
+flask
+flask_login
+psycopg2
+flask_cors
+postgres

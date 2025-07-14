@@ -1,0 +1,40 @@
+{% extends "home.html" %}
+
+{% block title %}Current Loans - Banking App{% endblock %}
+
+{% block content %}
+<h1>Current Loans</h1>
+<div class="loan-list">
+    {% for loan in loans %}
+    <div class="loan-item" data-loan-id="{{ loan.application_id }}">
+        <h2>{{ loan.loan_type }}</h2>
+        <p class="loan-amount">{{ loan.loan_amount if loan.loan_amount else loan.requested_amount }}</p>
+        <p class="loan-term">
+            {% if loan.term %}
+            {{ loan.term }} years remaining
+            {% else %}
+            Term details not available
+            {% endif %}
+        </p>
+        <p class="interest-rate">
+            Interest Rate: {{ loan.interest_rate if loan.interest_rate else 'N/A' }}
+        </p>
+        <button class="view-details-btn" onclick="viewLoanDetails('{{ loan.application_id }}')">View Details</button>
+    </div>
+    {% endfor %}
+</div>
+
+<div id="loan-details" style="display: none;">
+    <h2 id="detail-loan-type"></h2>
+    <p id="detail-loan-amount" class="loan-amount"></p>
+
+    <h3>Installment Details</h3>
+    <ul id="installment-list" class="installment-list">
+        <!-- Installment details will be dynamically added here -->
+    </ul>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="../static/js/loans.js"></script>
+{% endblock %}

@@ -1,0 +1,363 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+nav {
+    background-color: #2c3e50;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+.dashboard-widget, .account-item, .loan-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.balance, .account-balance, .loan-amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #27ae60; 
+}
+
+/* List Styles */
+.transaction-list, .account-list, .loan-list {
+    list-style-type: none; 
+    padding-left: 0; 
+}
+
+.transaction-date {
+    color: #7f8c8d; 
+    margin-right: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.5rem; 
+    border: 1px solid #bdc3c7; 
+    border-radius: 4px; 
+}
+
+.submit-btn, .view-details-btn {
+    background-color: #3498db; 
+    color: white; 
+    border: none; 
+    padding: 0.5rem 1rem; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+.submit-btn:hover, .view-details-btn:hover {
+    background-color: #2980b9; 
+}
+
+.forgot-password {
+    text-align: center; 
+    margin-top: 1rem; 
+}
+
+.forgot-password a {
+    color: #3498db; 
+}
+
+.forgot-password a:hover {
+    text-decoration: underline; 
+}
+
+#account-details {
+    margin-top: 2rem; 
+    padding: 1rem; 
+    background-color: #f9f9f9; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+#detail-account-type {
+    font-size: 1.8rem; 
+    font-weight: bold; 
+}
+
+#detail-balance {
+    font-size: 1.5rem; 
+    margin-top: 0.5rem; 
+}
+
+#transaction-list li {
+    padding: 0.5rem; 
+    border-bottom: 1px solid #ddd; 
+}
+
+#transaction-list li:last-child {
+   border-bottom:none; 
+}
+
+.logout-btn {
+    background-color: #e74c3c; 
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px; 
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.logout-btn:hover {
+    background-color: #c0392b; 
+}
+
+#loan-details {
+    margin-top: 2rem; 
+    padding: 1rem; 
+    background-color: #f9f9f9; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#installment-list {
+    list-style-type: none; 
+    padding-left: 0; 
+}
+
+#installment-list li {
+    padding: 0.5rem; 
+}
+#flash-messages {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+.flash-message {
+    background-color: #f8d7da;  /* Default color (Danger) */
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Success message styles */
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Warning message styles */
+.flash-message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* Close button styles */
+.flash-message .close-btn {
+    background: none;
+    border: none;
+    color: #721c24;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+}
+
+/* Hover effect for the close button */
+.flash-message .close-btn:hover {
+    color: #f5c6cb;
+}
+
+
+/* Loan Details Section */
+#loan-details {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: white; /* Cleaner white background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth animations */
+}
+
+#loan-details h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50; /* Dark blue for headers */
+    margin-bottom: 0.5rem;
+}
+
+#loan-details p {
+    font-size: 1.2rem;
+    color: #27ae60; /* Green for loan amounts */
+    margin-bottom: 1rem;
+}
+
+.installment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.installment-list li {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.installment-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Text Styling */
+.installment-list li span {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.installment-list li span.label {
+    font-weight: bold;
+    color: #7f8c8d; /* Subtle gray for labels */
+}
+
+.installment-list li span.value {
+    color: #2c3e50; /* Darker text for values */
+}
+
+/* Button Enhancements */
+.view-details-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #3498db;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.view-details-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+/* Account Details Section */
+#account-details {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: white; /* Cleaner white background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth animations */
+}
+
+#account-details h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50; /* Dark blue for headers */
+    margin-bottom: 0.5rem;
+}
+
+#account-details p {
+    font-size: 1.2rem;
+    color: #27ae60; /* Green for balances */
+    margin-bottom: 1rem;
+}
+
+.transaction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.transaction-list li {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.transaction-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.transaction-list li span {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.transaction-list li span.label {
+    font-weight: bold;
+    color: #7f8c8d; /* Subtle gray for labels */
+}
+
+.transaction-list li span.value {
+    color: #2c3e50; /* Darker text for values */
+}
+
+
+

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Make a Transaction{% endblock %}
+
+{% block content %}
+<h1>Make a Transaction</h1>
+<form action="{{ url_for('make_transaction') }}" method="POST">
+    <label for="sender_account">Sender Account:</label>
+    <select id="sender_account" name="sender_account">
+        {% for account in accounts %}
+        <option value="{{ account.id }}">{{ account.account_number }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="recipient_account">Recipient Account:</label>
+    <select id="recipient_account" name="recipient_account">
+        {% for account in accounts %}
+        <option value="{{ account.id }}">{{ account.account_number }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required><br><br>
+
+    <input type="submit" value="Transfer">
+</form>
+{% endblock %}

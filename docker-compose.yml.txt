@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  publisher-db:
+    build:
+      context: ./publisher
+      dockerfile: Dockerfile
+    container_name: publisher-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: banking_db
+    ports:
+      - "5432:5432"
+    networks:
+      - pg_network
+    restart: always
+
+  subscriber-db:
+    build:
+      context: ./subscriber
+      dockerfile: Dockerfile
+    container_name: subscriber-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: banking_db
+    ports:
+      - "5433:5432"
+    networks:
+      - pg_network
+    depends_on:
+      - publisher-db
+    restart: always
+
+networks:
+  pg_network:
